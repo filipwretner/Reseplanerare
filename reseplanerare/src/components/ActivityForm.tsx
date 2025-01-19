@@ -3,12 +3,13 @@ import React from 'react';
 interface FormProps {
   onAddActivity: (name: string, firstDate: string, secondDate: string, location: string) => void;
   onEditActivity?: (id: string, name: string, firstDate: string, secondDate: string, location: string) => void;
-  editingActivity?: { id: string, name: string, firstDate: string, secondDate: string, location: string };
+  editingActivity?: { id: string, name: string, firstDate: string, secondDate: string, location: string } | null;
 }
 
 function ActivityForm({ onAddActivity, onEditActivity, editingActivity }: FormProps): JSX.Element {
 
   function handleSubmit(event: React.FormEvent): void {
+
     event.preventDefault();
 
     const form = event.target as HTMLFormElement;

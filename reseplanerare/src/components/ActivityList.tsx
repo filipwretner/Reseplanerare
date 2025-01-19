@@ -12,7 +12,7 @@ interface ActivityProps {
 interface ListProps {
     activities: ActivityProps[];
     onDeleteActivity: (id: string) => void;
-    onEditActivity: (id: string, name: string, firstDate: string, secondDate: string, location: string) => void;
+    onEditActivity: (id: string) => void;
 }
 
 function ActivityList({activities, onDeleteActivity, onEditActivity}: ListProps): JSX.Element {
@@ -28,7 +28,7 @@ function ActivityList({activities, onDeleteActivity, onEditActivity}: ListProps)
                 secondDate={activity.secondDate}
                 location={activity.location}
                 onDelete={() => onDeleteActivity(activity.id)}
-                onEdit={() => onEditActivity(activity.id, activity.name, activity.firstDate, activity.secondDate, activity.location)}
+                onEdit={() => onEditActivity(activity.id)}
                 />
             ))}
         </div>

@@ -3,9 +3,12 @@ import ReactDOM from 'react-dom';
 import Header from './components/header';
 import ActivityForm from './components/ActivityForm';
 import ActivityList from './components/ActivityList';
-  
-let activities: {name: string; firstDate: string; secondDate: string; location: string; id: string;}[] = []; 
 
+// Global variables
+let activities: {name: string; firstDate: string; secondDate: string; location: string; id: string;}[] = []; 
+let editingActivity: { id: string; name: string; firstDate: string; secondDate: string; location: string } | null = null;
+
+// localStorage functions
 function loadFromLocalStorage(): void {
 
   const storedActivities = localStorage.getItem('activities');
@@ -25,10 +28,6 @@ function addActivity (name: string, firstDate: string, secondDate: string, locat
   renderApp();
 }
 
-function generateId(): string {
-  return Math.random().toString(36).substring(2, 9);
-}
-
 function deleteActivity(id: string): void {
   activities = activities.filter(activity => activity.id !== id);
   saveToLocalStorage();
@@ -45,8 +44,22 @@ function editActivity(id: string, name: string, firstDate: string, secondDate: s
     activity.secondDate = secondDate;
     activity.location = location;
     saveToLocalStorage();
-    renderApp();
+    stopEditingActivity();
   }
+}
+
+function startEditingActivity(id: string): void {
+  editingActivity = activities.find((activity) => activity.id === id) || null;
+  renderApp();
+}
+
+function stopEditingActivity(): void {
+  editingActivity = null;
+  renderApp();
+}
+
+function generateId(): string {
+  return Math.random().toString(36).substring(2, 9);
 }
 
 function renderApp() {
@@ -60,11 +73,14 @@ function App(): JSX.Element {
   return (
     <div>
       <Header title="Semesterplaneraren"/>
-      <ActivityForm onAddActivity={addActivity}/>
+      <ActivityForm 
+      onAddActivity={addActivity}
+      onEditActivity={editActivity}
+      editingActivity={editingActivity}/>
       <ActivityList 
       activities={activities}
       onDeleteActivity={deleteActivity}
-      onEditActivity={editActivity}/>
+      onEditActivity={startEditingActivity}/>
     </div>
   );
 }

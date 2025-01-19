@@ -12,19 +12,19 @@ interface ItemProps {
     onEdit: () => void;
 }
 
-function ActivityItem({ id, name, firstDate, secondDate, location, onDelete, onEdit }: ItemProps): JSX.Element {
+function ActivityItem({ name, firstDate, secondDate, location, onDelete, onEdit }: ItemProps): JSX.Element {
 
     return (
         <div>
             <h3>{name}</h3>
-            if (firstDate === secondDate) {
+            {firstDate === secondDate ? (
                 <p>Datum: {firstDate}</p>
-            } else {
+            ) : (
                 <>
                     <p>Från: {firstDate}</p>
                     <p>Till: {secondDate}</p>
                 </>
-            }
+            )}
             <p>Plats: {location}</p>
             <EditActivity onEdit={onEdit} />
             <DeleteActivity onDelete={onDelete} />
