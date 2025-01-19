@@ -18,7 +18,7 @@ interface ListProps {
 function ActivityList({activities, onDeleteActivity, onEditActivity}: ListProps): JSX.Element {
 
     return (
-        <div>
+        <div className="activity-list">
             {activities.map((activity) => (
                 <ActivityItem
                 key={activity.id}

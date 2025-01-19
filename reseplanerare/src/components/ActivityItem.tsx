@@ -15,7 +15,7 @@ interface ItemProps {
 function ActivityItem({ name, firstDate, secondDate, location, onDelete, onEdit }: ItemProps): JSX.Element {
 
     return (
-        <div>
+        <div className="activity-item">
             <h3>{name}</h3>
             {firstDate === secondDate ? (
                 <p>Datum: {firstDate}</p>

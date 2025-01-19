@@ -29,39 +29,43 @@ function ActivityForm({ onAddActivity, onEditActivity, editingActivity }: FormPr
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      <div className='form-group'>
         <h2> Namn: </h2>
         <input
           type="text"
           name="name"
           defaultValue={editingActivity ? editingActivity.name : ''}
+          className='form-input'
         />
       </div>
-      <div>
+      <div className='form-group'>
         <h2> Från: </h2>
         <input
           type="date"
           name="firstDate"
           defaultValue={editingActivity ? editingActivity.firstDate : ''}
+          className='form-input'
         />
       </div>
-      <div>
+      <div className='form-group'>
         <h2> Till: </h2>
         <input
           type="date"
           name="secondDate"
           defaultValue={editingActivity ? editingActivity.secondDate : ''}
+          className='form-input'
         />
       </div>
-      <div>
+      <div className='form-group'>
         <h2> Plats: </h2>
         <input
           type="text"
           name="location"
           defaultValue={editingActivity ? editingActivity.location : ''}
+          className='form-input'
         />
       </div>
-      <button type="submit">{editingActivity ? 'Redigera aktivitet' : 'Lägg till aktivitet'}</button>
+      <button type="submit" className='form-submit'>{editingActivity ? 'Redigera aktivitet' : 'Lägg till aktivitet'}</button>
     </form>
   );
 }
