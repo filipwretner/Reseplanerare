@@ -1,3 +1,4 @@
+// Component that renders the edit button
 import React from "react";
 
 interface EditProps {

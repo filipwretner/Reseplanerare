@@ -1,11 +1,14 @@
+// ActivityForm.tsx - Component that handles form input aswell as editing
 import React from 'react';
 
+// Properties for the form component
 interface FormProps {
   onAddActivity: (name: string, firstDate: string, secondDate: string, location: string) => void;
   onEditActivity?: (id: string, name: string, firstDate: string, secondDate: string, location: string) => void;
   editingActivity?: { id: string, name: string, firstDate: string, secondDate: string, location: string } | null;
 }
 
+// Functional component for the form component
 function ActivityForm({ onAddActivity, onEditActivity, editingActivity }: FormProps): JSX.Element {
 
   function handleSubmit(event: React.FormEvent): void {
@@ -24,7 +27,7 @@ function ActivityForm({ onAddActivity, onEditActivity, editingActivity }: FormPr
       onAddActivity(name, firstDate, secondDate, location);
     }
 
-    form.reset();  // Reset the form after submit
+    form.reset();  
   }
 
   return (

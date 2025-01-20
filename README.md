@@ -1,39 +1,27 @@
 # Reseplanerare
  Boiler Room Projekt - React
 
-Krav för projektet
+Beskrivning av applikationen:
+Detta är en enkel applikation för att planera sin semester. Appen är Byggt med Vite och React Typescript.
 
-Grundläggande funktionalitet:
+Installation:
+1. Klona repository till Visual Studio Code
+2. Öppna terminal och skriv cd reseplanerare för att gå till rätt mapp
+3. Kör npm install
+4. Kör npm run dev för att starta en lokal server
 
-Formulär för att lägga till aktiviteter
-Aktivitetens namn, datum och plats ska kunna anges.
-Hantera användarinteraktioner (valfria händelsehanteringsfunktion) för att hantera inputfältens värden.
-Hantera användarinteraktioner (valfria händelsehanteringsfunktion) för att lägga till en aktivitet i listan.
+Användning av applikationen:
+1. Fyll i alla fält i formuläret
+2. Klicka på "Lägg till aktivitet" knappen för att lägga till aktiviteten
+3. Tillagda aktiviteter visas sedan i en lista längre ned på sidan
+4. Vill du ta bort en aktivitet kan du trycka på "Ta Bort" knappen 
+5. För att redigera tryck på "Redigera" knappen
+6. Formuläret kommer fyllas i med datan från den aktiviteten du valde
+7. För att konfirmera ändringarna, tryck på "Redigera aktivitet" knappen
 
-Lista över aktiviteter
-Visa alla tillagda aktiviteter dynamiskt.
-Varje aktivitet ska minst visa:
-Namn
-Datum
-Plats. 
-(Frivilligt): Fler detaljer kan läggas till.
-
-Filstruktur och dokumentation
-Skapa en tydlig mappstruktur för komponenterna.
-Lägg till en README-fil med beskrivning av projektet och instruktioner för hur man kör det.
-En förklaring på hur man som användare använder er applikation.
-Använd kodkommentarer för att förklara kodens syfte och funktion där det känns nödvändigt (Detta är en liten konst i sig =P ).
-
-Validering och Felhantering
-Kontrollera att användaren fyller i alla fält innan aktiviteten läggs till.
-
-Level Ups (Frivilliga Utmaningar)
-Lägg till en funktion för att radera aktiviteter från listan.
-Implementera enkel styling med CSS för att förbättra layouten.
-Lägg till en funktion för att redigera befintliga aktiviteter.
-Använd LocalStorage för att spara aktiviteter mellan sidladdningar.
-
-Olika komponenter:
-Formulär
-Lista med alla aktiviteter
-Ett "aktivitetskort"
+Funktioner:
+- Lägga till aktiviter med ett namn, datum och plats
+- Visa upp tillagda aktiviteter
+- local storage som sparar tillagda aktiviter lokalt
+- Redigera tillagda aktiviteter
+- Ta bort tillagda aktiviteter

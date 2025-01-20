@@ -1,3 +1,4 @@
+// Header.tsx - Component that renders the header
 import React from 'react';
 
 interface HeaderProps {

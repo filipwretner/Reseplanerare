@@ -1,6 +1,8 @@
+// ActivityList.tsx - Component that creates a list of added activities
 import React from "react";
 import ActivityItem from "./ActivityItem";
 
+// Properties for list component
 interface ActivityProps {
     name: string;
     firstDate: string;
@@ -15,6 +17,7 @@ interface ListProps {
     onEditActivity: (id: string) => void;
 }
 
+// Functional component for the list component
 function ActivityList({activities, onDeleteActivity, onEditActivity}: ListProps): JSX.Element {
 
     return (

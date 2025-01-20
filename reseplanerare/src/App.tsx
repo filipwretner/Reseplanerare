@@ -1,3 +1,4 @@
+// App.tsx - Main component, handles over-arching application logic and coordinates other components
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/header';

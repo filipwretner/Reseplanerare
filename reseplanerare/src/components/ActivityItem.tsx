@@ -1,7 +1,9 @@
+// ActivityItem.tsx - Component that renders a single activity
 import React from "react";
 import EditActivity from "./EditActivity";
 import DeleteActivity from "./DeleteActivity";
 
+// Propoerties for the item component
 interface ItemProps {
     name: string;
     firstDate: string;
@@ -12,6 +14,7 @@ interface ItemProps {
     onEdit: () => void;
 }
 
+// Functional component for the item component
 function ActivityItem({ name, firstDate, secondDate, location, onDelete, onEdit }: ItemProps): JSX.Element {
 
     return (

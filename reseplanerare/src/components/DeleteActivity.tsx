@@ -1,3 +1,4 @@
+// Component that renders the delete button
 import React from "react";
 
 interface DeleteProps {
