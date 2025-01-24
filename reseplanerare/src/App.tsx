@@ -16,7 +16,7 @@ function App(): JSX.Element {
     id: string;
   } 
 
-  const [activities, setActivities] = useState<Activity[]>(ActivityManager.getAll()); // Value is Activity and is imported from the ActivityManager
+  const [activities, setActivities] = useState<Activity[]>(ActivityManager.getActivities()); // Value is Activity and is imported from the ActivityManager
   const [editingActivity, setEditingActivity] = useState<Activity | null>(null); // Value is either an Activity or null
   const [filter, setFilter] = useState(''); // Value is empty until we change the state
   const [loading, setLoading] = useState(true); // Value is a boolean that is used to check if all the data has been loaded
@@ -25,7 +25,7 @@ function App(): JSX.Element {
   useEffect(() => { // Gets activited once, loads data with a timer
 
     setTimeout(() => {
-      const initialActivities = ActivityManager.getAll(); // Hämta initial data
+      const initialActivities = ActivityManager.getActivities(); // Hämta initial data
       setActivities(initialActivities);
       setLoading(false);
     }, 1000); // Laddningstid = 1 sekund
@@ -34,17 +34,17 @@ function App(): JSX.Element {
 
   const handleAddActivity = (name: string, firstDate: string, secondDate: string, location: string) => {
     ActivityManager.add(name, firstDate, secondDate, location);
-    setActivities([...ActivityManager.getAll()]);
+    setActivities([...ActivityManager.getActivities()]);
   };
 
   const handleDeleteActivity = (id: string) => {
     ActivityManager.delete(id);
-    setActivities([...ActivityManager.getAll()]);
+    setActivities([...ActivityManager.getActivities()]);
   };
 
   const handleEditActivity = (id: string, name: string, firstDate: string, secondDate: string, location: string) => {
     ActivityManager.edit(id, name, firstDate, secondDate, location);
-    setActivities([...ActivityManager.getAll()]);
+    setActivities([...ActivityManager.getActivities()]);
     setEditingActivity(null);
   };
 

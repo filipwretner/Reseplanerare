@@ -4,7 +4,7 @@ let activities: { name: string; firstDate: string; secondDate: string; location:
 
 export const ActivityManager = {
 
-  getAll: () => activities,
+  getActivities: () => activities,
 
   add: (name: string, firstDate: string, secondDate: string, location: string) => {
 

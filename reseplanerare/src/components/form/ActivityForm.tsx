@@ -1,5 +1,6 @@
 // ActivityForm.tsx - Component that handles form input aswell as editing
 import React, { useState } from 'react';
+import FormInput from './FormInput';
 
 interface FormProps {
   onAddActivity: (name: string, firstDate: string, secondDate: string, location: string) => void;
@@ -41,22 +42,10 @@ function ActivityForm({ onAddActivity, onEditActivity, editingActivity }: FormPr
   return (
     <form onSubmit={handleSubmit}>
       {error && <p className="error-message">{error}</p>}
-      <div className="form-group">
-        <h2>Namn:</h2>
-        <input type="text" name="name" defaultValue={editingActivity ? editingActivity.name : ''} className="form-input" />
-      </div>
-      <div className="form-group">
-        <h2>Från:</h2>
-        <input type="date" name="firstDate" defaultValue={editingActivity ? editingActivity.firstDate : ''} className="form-input" />
-      </div>
-      <div className="form-group">
-        <h2>Till:</h2>
-        <input type="date" name="secondDate" defaultValue={editingActivity ? editingActivity.secondDate : ''} className="form-input" />
-      </div>
-      <div className="form-group">
-        <h2>Plats:</h2>
-        <input type="text" name="location" defaultValue={editingActivity ? editingActivity.location : ''} className="form-input" />
-      </div>
+      <FormInput type="text" name="name" defaultValue={editingActivity ? editingActivity.name : ""} className="form-input" label="Namn: " />
+      <FormInput type="text" name="firstDate" defaultValue={editingActivity ? editingActivity.firstDate : ""} className="form-input" label="Från: " />
+      <FormInput type="text" name="secondDate" defaultValue={editingActivity ? editingActivity.secondDate : ""} className="form-input" label="Till: " />
+      <FormInput type="text" name="location" defaultValue={editingActivity ? editingActivity.location : ""} className="form-input" label="Plats: " />
       <button type="submit" className="form-submit">{editingActivity ? 'Redigera aktivitet' : 'Lägg till aktivitet'}</button>
     </form>
   );
