@@ -1,6 +1,6 @@
 // ActivityList.tsx - Component that creates a list of added activities
 import React from "react";
-import ActivityItem from "./ActivityItem";
+import ActivityItem from "../item/ActivityItem";
 
 // Properties for list component
 interface ActivityProps {
