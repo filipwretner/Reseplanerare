@@ -10,7 +10,7 @@ interface FormProps {
 
 function ActivityForm({ onAddActivity, onEditActivity, editingActivity }: FormProps): JSX.Element {
 
-  const [error, setError] = useState(''); // Using useState to handle error messages
+  const [error, setError] = useState(''); 
 
   function handleSubmit(event: React.FormEvent): void {
 
@@ -24,6 +24,11 @@ function ActivityForm({ onAddActivity, onEditActivity, editingActivity }: FormPr
 
     if (!name || !firstDate || !secondDate || !location) {
       setError('Vänligen fyll i alla fält.');
+      return;
+    }
+
+    if (firstDate > secondDate) {
+      setError('Från-datum måste vara före Till-datum.');
       return;
     }
 
@@ -43,8 +48,8 @@ function ActivityForm({ onAddActivity, onEditActivity, editingActivity }: FormPr
     <form onSubmit={handleSubmit}>
       {error && <p className="error-message">{error}</p>}
       <FormInput type="text" name="name" defaultValue={editingActivity ? editingActivity.name : ""} className="form-input" label="Namn: " />
-      <FormInput type="text" name="firstDate" defaultValue={editingActivity ? editingActivity.firstDate : ""} className="form-input" label="Från: " />
-      <FormInput type="text" name="secondDate" defaultValue={editingActivity ? editingActivity.secondDate : ""} className="form-input" label="Till: " />
+      <FormInput type="date" name="firstDate" defaultValue={editingActivity ? editingActivity.firstDate : ""} className="form-input" label="Från: " />
+      <FormInput type="date" name="secondDate" defaultValue={editingActivity ? editingActivity.secondDate : ""} className="form-input" label="Till: " />
       <FormInput type="text" name="location" defaultValue={editingActivity ? editingActivity.location : ""} className="form-input" label="Plats: " />
       <button type="submit" className="form-submit">{editingActivity ? 'Redigera aktivitet' : 'Lägg till aktivitet'}</button>
     </form>

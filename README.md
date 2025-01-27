@@ -18,6 +18,7 @@ Användning av applikationen:
 5. För att redigera tryck på "Redigera" knappen
 6. Formuläret kommer fyllas i med datan från den aktiviteten du valde
 7. För att konfirmera ändringarna, tryck på "Redigera aktivitet" knappen
+8. Skriv in namn i fältet ovanför listan för att söka efter aktiviteter
 
 Funktioner:
 - Lägga till aktiviter med ett namn, datum och plats
@@ -25,3 +26,4 @@ Funktioner:
 - local storage som sparar tillagda aktiviter lokalt
 - Redigera tillagda aktiviteter
 - Ta bort tillagda aktiviteter
+- Filtera aktiviteter efter namn

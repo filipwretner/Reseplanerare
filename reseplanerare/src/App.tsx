@@ -16,19 +16,19 @@ function App(): JSX.Element {
     id: string;
   } 
 
-  const [activities, setActivities] = useState<Activity[]>(ActivityManager.getActivities()); // Value is Activity and is imported from the ActivityManager
-  const [editingActivity, setEditingActivity] = useState<Activity | null>(null); // Value is either an Activity or null
-  const [filter, setFilter] = useState(''); // Value is empty until we change the state
-  const [loading, setLoading] = useState(true); // Value is a boolean that is used to check if all the data has been loaded
+  const [activities, setActivities] = useState<Activity[]>(ActivityManager.getActivities()); 
+  const [editingActivity, setEditingActivity] = useState<Activity | null>(null); 
+  const [filter, setFilter] = useState(''); 
+  const [loading, setLoading] = useState(true); 
   
 
-  useEffect(() => { // Gets activited once, loads data with a timer
+  useEffect(() => { // Loads data with a timer
 
     setTimeout(() => {
-      const initialActivities = ActivityManager.getActivities(); // Hämta initial data
+      const initialActivities = ActivityManager.getActivities(); 
       setActivities(initialActivities);
       setLoading(false);
-    }, 1000); // Laddningstid = 1 sekund
+    }, 1000); // Loading time = 1 second
 
   }, []);
 
@@ -60,15 +60,15 @@ function App(): JSX.Element {
   return (
     <div>
       <Header title="Semesterplaneraren" />
-      {loading ? ( <p>Laddar aktiviteter...</p>
+      {loading ? ( <p className="error-message">Laddar aktiviteter...</p>
       ) : (
         <>
-          <Filter filter={filter} onFilterChange={setFilter} placeholder="Sök aktiviteter..." />
           <ActivityForm
             onAddActivity={handleAddActivity}
             onEditActivity={handleEditActivity}
             editingActivity={editingActivity}
           />
+          <Filter filter={filter} onFilterChange={setFilter} placeholder="Sök aktiviteter..." />
           <ActivityList
             activities={filteredActivities}
             onDeleteActivity={handleDeleteActivity}

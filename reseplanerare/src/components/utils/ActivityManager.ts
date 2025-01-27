@@ -2,6 +2,7 @@ import { LocalStorageManager } from './LocalStorageManager';
 
 let activities: { name: string; firstDate: string; secondDate: string; location: string; id: string }[] = LocalStorageManager.load();
 
+// Pushes a new activity, filters out an existing based on ID or edits an activity
 export const ActivityManager = {
 
   getActivities: () => activities,
